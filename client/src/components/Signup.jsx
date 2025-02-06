@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -16,14 +16,14 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <AnimatePresence>
       {isOpenSignup && (
         <motion.div
-          initial={{ opacity: 0.2, y: 50 }}
-          transition={{ duration: 0.3 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center"
+        key="login-modal"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
+          className="fixed inset-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center"
         >
           <div className="rounded-lg p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600">
             <form className="relative flex flex-col items-center bg-black p-10 rounded-lg shadow-lg">
@@ -88,7 +88,7 @@ const SignUp = () => {
           </div>
         </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   );
 };
 
