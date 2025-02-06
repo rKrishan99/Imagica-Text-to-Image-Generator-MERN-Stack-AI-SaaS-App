@@ -10,9 +10,9 @@ const HowItWorks = () => {
       </p>
       {HowItWorksData && HowItWorksData.length > 0 ? (
         HowItWorksData.map((step, index) => (
-          <div className="space-y-4 w-full max-w-3xl text-sm">
+          <div className="w-full max-w-3xl text-sm">
             <div
-              className="flex items-center gap-4 p-5 px-8 bg-white/20 shadow-md border cursor-pointer hover:scale-[1.02] transition-all duration-300 rounded-lg"
+              className="flex mb-4 items-center gap-4 p-5 px-8 bg-white/20 shadow-md border border-gray-300 cursor-pointer hover:scale-[1.02] transition-all duration-300 rounded-lg"
               key={index}
             >
               <img width={40} className="h-10" src={step.image} alt="" />
