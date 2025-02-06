@@ -14,6 +14,9 @@ import step_icon_2 from "./step_icon_2.svg";
 import step_icon_3 from "./step_icon_3.svg";
 import intro_sec_img_1 from "./intro_sec_img_1.jpg";
 import intro_sec_img_2 from "./intro_sec_img_2.jpg";
+import profile_img_1 from "./profile_img_1.png";
+import profile_img_2 from "./profile_img_2.png";
+import rating_star from "./rating_star.svg";
 
 export const assets = {
   logo,
@@ -34,6 +37,9 @@ export const assets = {
   step_icon_3,
   intro_sec_img_1,
   intro_sec_img_2,
+  profile_img_1,
+  profile_img_2,
+  rating_star,
 };
 
 export const HowItWorksData = [
@@ -56,44 +62,26 @@ export const HowItWorksData = [
   },
 ];
 
-export const stepData = [
-  {
-    title: "Step 1",
-    description: "Choose the amount of credit you want to buy",
-    icon: "step_icon_1",
-  },
-  {
-    title: "Step 2",
-    description: "Enter your payment details",
-    icon: "step_icon_2",
-  },
-  {
-    title: "Step 3",
-    description: "Get your credit and enjoy shopping",
-    icon: "step_icon_3",
-  },
-];
-
 export const testimonials = [
   {
-    image: "profile_image_1",
+    image: profile_img_1,
     name: "John Doe",
     role: "CEO",
-    star: "5",
+    star: 3,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor, justo eget ultrices ultrices, sem turpis blandit turpis, in lacinia ex est nec justo. In hac habitasse platea dictumst. ",
   },
   {
-    image: "profile_image_2",
+    image: profile_img_2,
     name: "Jane Doe",
     role: "CTO",
-    star: "5",
+    star: 5,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor, justo eget ultrices ultrices, sem turpis blandit turpis, in lacinia ex est nec justo. In hac habitasse platea dictumst. ",
   },
   {
-    image: "profile_image_3",
+    image: profile_img_2,
     name: "John Smith",
     role: "CFO",
-    star: "5",
+    star: 5,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor, justo eget ultrices ultrices, sem turpis blandit turpis, in lacinia ex est nec justo. In hac habitasse platea dictumst. ",
   },
 ];
