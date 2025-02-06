@@ -12,6 +12,8 @@ import generated_image_6 from "./generated_image_6.jpg";
 import step_icon_1 from "./step_icon_1.svg";
 import step_icon_2 from "./step_icon_2.svg";
 import step_icon_3 from "./step_icon_3.svg";
+import intro_sec_img_1 from "./intro_sec_img_1.jpg";
+import intro_sec_img_2 from "./intro_sec_img_2.jpg";
 
 export const assets = {
   logo,
@@ -30,6 +32,8 @@ export const assets = {
   step_icon_1,
   step_icon_2,
   step_icon_3,
+  intro_sec_img_1,
+  intro_sec_img_2,
 };
 
 export const HowItWorksData = [
