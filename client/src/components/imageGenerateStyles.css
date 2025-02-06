@@ -1,0 +1,23 @@
+/* styles.css */
+@keyframes gradientImg-bg {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .gradientImg-bg {
+    /* background: linear-gradient(270deg, #0c0431, #130d42, #23032f, #25063c);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite; */
+    background-image: linear-gradient(125deg,#0e0315,#1a022b,#1c022d,#0d0212,#16031f);
+    background-size: 1000%;
+    animation: gradient-bg 2s infinite;
+  }
+
+  

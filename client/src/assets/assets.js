@@ -23,6 +23,8 @@ import instagram_icon from "./instagram_icon.svg";
 import priceIcon from "./priceIcon.svg";
 import starDeep from "./starDeep.svg";
 import imgDwn from "./imgDwn.svg"
+import plainLogo from "./plainLogo.svg"
+import cross_icon from "./cross_icon.svg";
 
 export const assets = {
   logo,
@@ -51,7 +53,9 @@ export const assets = {
   instagram_icon,
   priceIcon,
   starDeep,
-  imgDwn
+  imgDwn,
+  plainLogo,
+  cross_icon,
 };
 
 export const HowItWorksData = [
