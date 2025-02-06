@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
-
   const navigate = useNavigate();
 
   const { user, setUser } = useContext(AppContext);
@@ -18,7 +17,10 @@ const Navbar = () => {
       <div>
         {user ? (
           <div className="flex items-center gap-5=2 sm:gap-3 ">
-            <button onClick={() => navigate("/buy-credit")} className="flex cursor-pointer items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-transform duration-700">
+            <button
+              onClick={() => navigate("/buy-credit")}
+              className="flex cursor-pointer items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-transform duration-700"
+            >
               <img className="w-5" src={assets.creditStar} alt="" />
               <p className="text-xs sm:text-sm font-medium text-gray-600">
                 Credit left : 50
@@ -46,9 +48,11 @@ const Navbar = () => {
             >
               Pricing
             </p>
-            <button className="bg-zinc-800 cursor-pointer text-white px-7 py-2 sm:px-10 text-sm rounded-full">
-              Login
-            </button>
+            <div className="rounded-full p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600 cursor-pointer hover:scale-105 transition-transform duration-700">
+              <button className="bg-gray-950 cursor-pointer text-white px-7 py-2 sm:px-10 text-sm rounded-full">
+                Login
+              </button>
+            </div>
           </div>
         )}
       </div>

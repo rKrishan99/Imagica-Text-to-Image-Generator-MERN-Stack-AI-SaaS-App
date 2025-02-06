@@ -20,6 +20,7 @@ import rating_star from "./rating_star.svg";
 import facebook_icon from "./facebook_icon.svg";
 import twitter_icon from "./twitter_icon.svg";
 import instagram_icon from "./instagram_icon.svg";
+import priceIcon from "./priceIcon.svg";
 
 export const assets = {
   logo,
@@ -46,6 +47,7 @@ export const assets = {
   facebook_icon,
   twitter_icon,
   instagram_icon,
+  priceIcon,
 };
 
 export const HowItWorksData = [
@@ -98,17 +100,20 @@ export const plans = [
     price: "10",
     credits: "100",
     desc: "Basic plan for small shopping",
+    img: priceIcon,
   },
   {
     id: "Standard",
     price: "20",
     credits: "200",
     desc: "Standard plan for medium shopping",
+    img: priceIcon,
   },
   {
     id: "Premium",
     price: "30",
     credits: "300",
     desc: "Premium plan for large shopping",
+    img: priceIcon,
   },
 ];

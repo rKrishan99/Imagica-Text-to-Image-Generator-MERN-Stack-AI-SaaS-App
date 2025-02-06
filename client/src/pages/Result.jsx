@@ -2,7 +2,11 @@ import React from 'react'
 
 const Result = () => {
   return (
-    <div>Result</div>
+    <div>
+      <div className='relative min-h-screen'>
+
+      </div>
+    </div>
   )
 }
 
