@@ -1,9 +1,16 @@
 import React from "react";
 import { HowItWorksData } from "../assets/assets";
+import { motion } from "motion/react";
 
 const HowItWorks = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <motion.div
+      initial={{ opacity: 0.2, y: 100 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex flex-col items-center justify-center h-screen"
+    >
       <h1 className="text-3xl sm:text-4xl font-semibold mb-2">How It Works</h1>
       <p className="text-lg text-gray-400 mb-8">
         Transform Words Into Stunning Images
@@ -26,7 +33,7 @@ const HowItWorks = () => {
       ) : (
         <p>No steps available</p>
       )}
-    </div>
+    </motion.div>
   );
 };
 

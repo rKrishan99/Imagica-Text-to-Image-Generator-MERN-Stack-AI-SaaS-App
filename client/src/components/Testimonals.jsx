@@ -1,9 +1,16 @@
 import React from "react";
 import { assets, testimonials } from "../assets/assets";
+import { motion } from "motion/react";
 
 const Testimonals = () => {
   return (
-    <div className="flex flex-col mt-28 items-center pb-8">
+    <motion.div
+      initial={{ opacity: 0.2, y: 100 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex flex-col mt-28 items-center pb-8"
+    >
       <h1 className="text-4xl">Cutomer Testimonals</h1>
       <p className="font-light mt-2">What Our Users Are Saying</p>
       <div className="flex justify-center flex-wrap gap-6 mt-12">
@@ -43,7 +50,7 @@ const Testimonals = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

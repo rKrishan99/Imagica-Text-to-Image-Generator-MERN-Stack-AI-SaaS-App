@@ -4,6 +4,7 @@ import GenerationHistory from "../components/GenerationHistory";
 import ImageGenerate from "../components/ImageGenerate";
 import InputField from "../components/InputField";
 import { AppContext } from "../context/AppContext";
+import { motion } from "motion/react";
 
 const Result = () => {
 
@@ -12,7 +13,12 @@ const Result = () => {
 
 
   return (
-    <div>
+    <motion.div 
+    initial={{ opacity: 0.2, y: 100 }}
+    transition={{ duration: 1 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    >
       <div className="relative min-h-screen">
         <h1 className="mt-14 text-4xl font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#b85fa2] via-red-500 to-blue-600">
           AI Image Creation
@@ -20,7 +26,7 @@ const Result = () => {
 
         {/* Input section */}
         {
-          isImageGenerating ? (<ImageGenerate />) : (<InputField />)
+          !isImageGenerating ? (<ImageGenerate />) : (<InputField />)
         }
 
         
@@ -50,7 +56,7 @@ const Result = () => {
         {/* Generation History */}
         <GenerationHistory />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
