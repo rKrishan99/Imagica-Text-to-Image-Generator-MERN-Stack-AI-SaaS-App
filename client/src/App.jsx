@@ -6,6 +6,8 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./styles.css";
+import Login from "./components/Login";
+import SignUp from "./components/Signup";
 
 const App = () => {
   return (
@@ -13,11 +15,14 @@ const App = () => {
     <div className="px-4  sm:px-10 md:-14 lg:px-28 min-h-screen gradient-bg text-white"> 
     {/* from-teal-50 to-orange-50  */}
       <Navbar />
-      
+      <Login />
+      <SignUp />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/result" element={<Result />} />
         <Route path="/buy-credit" element={<BuyCredit />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/sign-up" element={<SignUp/>}/>
       </Routes>
       <Footer />
     </div>

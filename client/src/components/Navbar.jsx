@@ -6,7 +6,7 @@ import { AppContext } from "../context/AppContext";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { user, setUser } = useContext(AppContext);
+  const { user, setUser, isOpenLogin, setIsOpenLogin} = useContext(AppContext);
 
   return (
     <div className="flex items-center justify-between py-4">
@@ -15,7 +15,7 @@ const Navbar = () => {
       </Link>
 
       <div>
-        {!user ? (
+        {user ? (
           <div className="flex items-center gap-5=2 sm:gap-3 ">
             <div className="rounded-full p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600 cursor-pointer hover:scale-105 transition-transform duration-700">
               <button
@@ -37,7 +37,7 @@ const Navbar = () => {
               />
               <div className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-white text-center runded pt-12">
                 <ul className="list-none m-0 p-2 bg-black rounded-md border text-sm">
-                  <li className="py-1 px-2 cursor-pointer text-center pr-10">Logout</li>
+                  <li  onClick={() => setIsOpenLogin(false)} className="py-1 px-2 cursor-pointer text-center pr-10">Logout</li>
                 </ul>
               </div>
             </div>
@@ -51,7 +51,7 @@ const Navbar = () => {
               Pricing
             </p>
             <div className="rounded-full p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600 cursor-pointer hover:scale-105 transition-transform duration-700">
-              <button className="bg-gray-950 cursor-pointer text-white px-7 py-2 sm:px-10 text-sm rounded-full">
+              <button onClick={() => setIsOpenLogin(true)} className="bg-gray-950 cursor-pointer text-white px-7 py-2 sm:px-10 text-sm rounded-full">
                 Login
               </button>
             </div>
