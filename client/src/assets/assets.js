@@ -17,6 +17,9 @@ import intro_sec_img_2 from "./intro_sec_img_2.jpg";
 import profile_img_1 from "./profile_img_1.png";
 import profile_img_2 from "./profile_img_2.png";
 import rating_star from "./rating_star.svg";
+import facebook_icon from "./facebook_icon.svg";
+import twitter_icon from "./twitter_icon.svg";
+import instagram_icon from "./instagram_icon.svg";
 
 export const assets = {
   logo,
@@ -40,6 +43,9 @@ export const assets = {
   profile_img_1,
   profile_img_2,
   rating_star,
+  facebook_icon,
+  twitter_icon,
+  instagram_icon,
 };
 
 export const HowItWorksData = [
