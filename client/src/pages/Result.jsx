@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { assets } from "../assets/assets";
 import GenerationHistory from "../components/GenerationHistory";
 import ImageGenerate from "../components/ImageGenerate";
 import InputField from "../components/InputField";
+import { AppContext } from "../context/AppContext";
 
 const Result = () => {
+
+
+  const { isImageGenerating, setIsImageGenerating } = useContext(AppContext);
+
+
   return (
     <div>
       <div className="relative min-h-screen">
@@ -13,10 +19,14 @@ const Result = () => {
         </h1>
 
         {/* Input section */}
-        <InputField />
+        {
+          isImageGenerating ? (<ImageGenerate />) : (<InputField />)
+        }
+
+        
 
         {/* Image section */}
-        <ImageGenerate />
+        
 
         {/* upgrade credit section*/}
         <div className=" mt-40 rounded-lg p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600">

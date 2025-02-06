@@ -6,13 +6,13 @@ const Testimonals = () => {
     <div className="flex flex-col mt-28 items-center pb-8">
       <h1 className="text-4xl">Cutomer Testimonals</h1>
       <p className="font-light mt-2">What Our Users Are Saying</p>
-      <div className="flex flex-wrap gap-6 mt-12">
+      <div className="flex justify-center flex-wrap gap-6 mt-12">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
             className="rounded-lg bg-gradient-to-r from-[#bc619b] via-red-500 p-[3px] to-blue-600 hover:scale-[1.02] transition-all duration-300"
           >
-            <div className="bg-[#000000] p-12 rounded-lg w-80 m-auto cursor-pointer ">
+            <div className="bg-[#000000] p-12 rounded-lg w-80 h-full m-auto cursor-pointer ">
               <div className="flex flex-col items-center">
                 <img
                   src={testimonial.image}

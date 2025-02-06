@@ -14,8 +14,9 @@ import step_icon_2 from "./step_icon_2.svg";
 import step_icon_3 from "./step_icon_3.svg";
 import intro_sec_img_1 from "./intro_sec_img_1.jpg";
 import intro_sec_img_2 from "./intro_sec_img_2.jpg";
-import profile_img_1 from "./profile_img_1.png";
-import profile_img_2 from "./profile_img_2.png";
+import profile_img_1 from "./profile_img_1.jpg";
+import profile_img_2 from "./profile_img_2.jpg";
+import profile_img_3 from "./profile_img_3.jpg";
 import rating_star from "./rating_star.svg";
 import facebook_icon from "./facebook_icon.svg";
 import twitter_icon from "./twitter_icon.svg";
@@ -81,24 +82,24 @@ export const HowItWorksData = [
 export const testimonials = [
   {
     image: profile_img_1,
-    name: "John Doe",
-    role: "CEO",
-    star: 3,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor, justo eget ultrices ultrices, sem turpis blandit turpis, in lacinia ex est nec justo. In hac habitasse platea dictumst. ",
+    name: "Sarah T.",
+    role: "Freelance Graphic Designer",
+    star: 4,
+    text: "Imagica has completely transformed the way I approach design projects! As a freelance graphic designer, I often struggle with creative blocks, but this tool helps me generate stunning visuals in seconds. The AI is incredibly intuitive and produces high-quality images that align perfectly with my vision. It’s like having a creative partner who never runs out of ideas!"
   },
   {
     image: profile_img_2,
-    name: "Jane Doe",
-    role: "CTO",
+    name: " James L",
+    role: "Small Business Owner",
     star: 5,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor, justo eget ultrices ultrices, sem turpis blandit turpis, in lacinia ex est nec justo. In hac habitasse platea dictumst. ",
+    text: "I’m not a tech-savvy person, but Imagica makes it so easy to create professional-grade images without any hassle. All I have to do is type a prompt, and within moments, I get results that exceed my expectations. Whether it’s for social media posts or marketing materials, Imagica saves me time and effort while delivering amazing outcomes."
   },
   {
-    image: profile_img_2,
-    name: "John Smith",
-    role: "CFO",
+    image: profile_img_3,
+    name: "Priya K.",
+    role: "Digital Marketing Specialist",
     star: 5,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor, justo eget ultrices ultrices, sem turpis blandit turpis, in lacinia ex est nec justo. In hac habitasse platea dictumst. ",
+    text: "As a digital marketer managing multiple campaigns, speed and quality are crucial for me. Imagica has been a game-changer—it allows me to quickly generate unique visuals tailored to each campaign’s needs. The variety of styles and customization options ensures that every image feels fresh and on-brand. Highly recommend it to anyone looking to elevate their content strategy!"
   },
 ];
 

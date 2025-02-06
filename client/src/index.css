@@ -4,3 +4,9 @@
 *{
     font-family: Outfit;
 }
+
+.placeholder-styles{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #b3b3b3;
+}

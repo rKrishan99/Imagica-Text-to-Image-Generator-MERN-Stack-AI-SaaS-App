@@ -5,7 +5,7 @@ const InputField = () => {
   return (
     <div className="flex flex-col md:flex-row justify-between gap-6 mt-10">
       <input
-        className="w-full bg-gray-900 px-8 py-4 rounded-lg border-2 border-transparent focus:border-[#9338bb] focus:outline-none placeholde:text-gray-900"
+        className="w-full bg-gray-900 px-8 py-4 placeholder-styles rounded-lg border-2 border-transparent focus:border-[#9338bb] focus:outline-none placeholde:text-gray-900"
         type="text"
         placeholder="Type a prompt..."
       />

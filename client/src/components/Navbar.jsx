@@ -15,27 +15,29 @@ const Navbar = () => {
       </Link>
 
       <div>
-        {user ? (
+        {!user ? (
           <div className="flex items-center gap-5=2 sm:gap-3 ">
-            <button
-              onClick={() => navigate("/buy-credit")}
-              className="flex cursor-pointer items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-transform duration-700"
-            >
-              <img className="w-5" src={assets.creditStar} alt="" />
-              <p className="text-xs sm:text-sm font-medium text-gray-600">
-                Credit left : 50
-              </p>
-            </button>
-            <p className="text-gray-600 max-sm:hidden pl-4">Hi, Rajitha</p>
+            <div className="rounded-full p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600 cursor-pointer hover:scale-105 transition-transform duration-700">
+              <button
+                onClick={() => navigate("/buy-credit")}
+                className="flex cursor-pointer items-center gap-2 bg-gray-950 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full"
+              >
+                <img className="w-5" src={assets.creditStar} alt="" />
+                <p className="text-xs sm:text-sm font-medium text-white">
+                  Credit left : 50
+                </p>
+              </button>
+            </div>
+            <p className="text-white max-sm:hidden pl-4">Hi, Rajitha</p>
             <div className="relative group">
               <img
-                className="w-10 drop-shadow"
+                className="w-10 drop-shadow cursor-pointer"
                 src={assets.profileIcon}
                 alt=""
               />
-              <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black runded pt-12">
-                <ul className="list-none m-0 p-2 bg-white rounded-md border text-sm">
-                  <li className="py-1 px-2 cursor-pointer pr-10">Logout</li>
+              <div className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-white text-center runded pt-12">
+                <ul className="list-none m-0 p-2 bg-black rounded-md border text-sm">
+                  <li className="py-1 px-2 cursor-pointer text-center pr-10">Logout</li>
                 </ul>
               </div>
             </div>
