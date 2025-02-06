@@ -1,12 +1,56 @@
 import logo from "./logo.svg";
 import profileIcon from "./profile_icon.png";
 import creditStar from "./credit_star.svg";
+import star_icon from "./star_icon.svg";
+import star_group from "./star_group.png";
+import generated_image_1 from "./generated_image_1.jpg";
+import generated_image_2 from "./generated_image_2.jpg";
+import generated_image_3 from "./generated_image_3.jpg";
+import generated_image_4 from "./generated_image_4.jpg";
+import generated_image_5 from "./generated_image_5.jpg";
+import generated_image_6 from "./generated_image_6.jpg";
+import step_icon_1 from "./step_icon_1.svg";
+import step_icon_2 from "./step_icon_2.svg";
+import step_icon_3 from "./step_icon_3.svg";
 
 export const assets = {
   logo,
-    profileIcon,
-    creditStar,
+  profileIcon,
+  creditStar,
+  star_icon,
+  star_group,
+  generatedImages: [
+    generated_image_1,
+    generated_image_2,
+    generated_image_3,
+    generated_image_4,
+    generated_image_5,
+    generated_image_6,
+  ],
+  step_icon_1,
+  step_icon_2,
+  step_icon_3,
 };
+
+export const HowItWorksData = [
+  {
+    image: step_icon_1,
+    title: "Describe Your Vision",
+    description:
+      "Type a phrese, sentence or paragraph that describes the image you want to generate",
+  },
+  {
+    image: step_icon_2,
+    title: "Watch the Magic",
+    description:
+      "Our AI will generate an image based on your description. You can also choose from a list of generated images",
+  },
+  {
+    image: step_icon_3,
+    title: "Download & Share",
+    description: "Download the image and share it with your friends and family",
+  },
+];
 
 export const stepData = [
   {
