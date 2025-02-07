@@ -7,6 +7,11 @@ const AppContextProvider = ({ children }) => {
   const [isImageGenerating, setIsImageGenerating] = useState(false);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenSignup, setIsOpenSignup] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [credit, setCredit] = useState(false);
+
+
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const value = {
     user,
@@ -17,6 +22,11 @@ const AppContextProvider = ({ children }) => {
     setIsOpenLogin,
     isOpenSignup,
     setIsOpenSignup,
+    backendUrl,
+    token,
+    setToken,
+    credit,
+    setCredit,
   };
 
   return (

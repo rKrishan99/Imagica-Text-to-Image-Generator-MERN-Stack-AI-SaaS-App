@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from "./pages/Home";
 import Result from "./pages/Result";
 import BuyCredit from "./pages/BuyCredit";
@@ -14,6 +16,7 @@ const App = () => {
     // <div className="px-4  sm:px-10 md:-14 lg:px-28 min-h-screen bg-gradient-to-b from-gray-950 to-purple-950">
     <div className="px-4  sm:px-10 md:-14 lg:px-28 min-h-screen gradient-bg text-white"> 
     {/* from-teal-50 to-orange-50  */}
+    <ToastContainer position="bottom-right"  />
       <Navbar />
       <Login />
       <SignUp />

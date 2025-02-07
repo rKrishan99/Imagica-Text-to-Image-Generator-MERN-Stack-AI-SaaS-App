@@ -1,11 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
 import { motion, AnimatePresence } from "motion/react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const { isOpenLogin, setIsOpenLogin, setIsOpenSignup } =
-    useContext(AppContext);
+  const {
+    isOpenLogin,
+    setIsOpenLogin,
+    setIsOpenSignup,
+    backendUrl,
+    setToken,
+    setUser,
+  } = useContext(AppContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(backendUrl + "/auth/login", {
+        email,
+        password,
+      });
+
+      if (data.success) {
+        setToken(data.token);
+        setUser(data.user);
+        localStorage.setItem("token", data.token);
+        setIsOpenLogin(false);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const hadleClickSignup = () => {
     setIsOpenLogin(false);
@@ -23,7 +55,10 @@ const Login = () => {
           className="fixed inset-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center"
         >
           <div className="rounded-lg p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600">
-            <form className="relative flex flex-col items-center bg-black p-10 rounded-lg shadow-lg">
+            <form
+              className="relative flex flex-col items-center bg-black p-10 rounded-lg shadow-lg"
+              onSubmit={onSubmitHandler}
+            >
               <img
                 onClick={() => setIsOpenLogin(false)}
                 className="absolute top-5 right-5 cursor-pointer"
@@ -40,6 +75,8 @@ const Login = () => {
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-10">
                 <img src={assets.email_icon} alt="" />
                 <input
+                  onClick={(e) => setEmail(e.target.value)}
+                  value={email}
                   className="focus:outline-none"
                   type="email"
                   placeholder="Email"
@@ -48,6 +85,8 @@ const Login = () => {
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-5">
                 <img src={assets.lock_icon} alt="" />
                 <input
+                  onClick={(e) => setPassword(e.target.value)}
+                  value={password}
                   className="focus:outline-none"
                   type="password"
                   placeholder="Password"

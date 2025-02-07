@@ -1,14 +1,47 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { motion, AnimatePresence } from "motion/react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
-  const navigate = useNavigate();
 
-  const { isOpenSignup, setIsOpenSignup, setIsOpenLogin } =
-    useContext(AppContext);
+  const {
+    isOpenSignup,
+    setIsOpenSignup,
+    setIsOpenLogin,
+    backendUrl,
+    setToken,
+    setUser,
+  } = useContext(AppContext);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(backendUrl + "/auth/register", {
+        name,
+        email,
+        password,
+      });
+
+      if (data.success) {
+        setToken(data.token);
+        setUser(data.user);
+        localStorage.setItem("token", data.token);
+        setIsOpenSignup(false);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleClickLogin = () => {
     setIsOpenSignup(false);
@@ -19,14 +52,17 @@ const SignUp = () => {
     <AnimatePresence>
       {isOpenSignup && (
         <motion.div
-        key="login-modal"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0 }}
+          key="login-modal"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
           className="fixed inset-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center"
         >
           <div className="rounded-lg p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600">
-            <form className="relative flex flex-col items-center bg-black p-10 rounded-lg shadow-lg">
+            <form
+              className="relative flex flex-col items-center bg-black p-10 rounded-lg shadow-lg"
+              onSubmit={onSubmitHandler}
+            >
               <img
                 onClick={() => setIsOpenSignup(false)}
                 className="absolute top-5 right-5 cursor-pointer"
@@ -43,6 +79,8 @@ const SignUp = () => {
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-10">
                 <img src={assets.email_icon} alt="" />
                 <input
+                  onClick={(e) => setName(e.target.value)}
+                  value={name}
                   className="focus:outline-none"
                   type="name"
                   placeholder="Name"
@@ -51,6 +89,8 @@ const SignUp = () => {
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-5">
                 <img src={assets.email_icon} alt="" />
                 <input
+                  onClick={(e) => setEmail(e.target.value)}
+                  value={email}
                   className="focus:outline-none"
                   type="email"
                   placeholder="Email"
@@ -59,6 +99,8 @@ const SignUp = () => {
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-5">
                 <img src={assets.lock_icon} alt="" />
                 <input
+                  onClick={(e) => setPassword(e.target.value)}
+                  value={password}
                   className="focus:outline-none"
                   type="password"
                   placeholder="Password"

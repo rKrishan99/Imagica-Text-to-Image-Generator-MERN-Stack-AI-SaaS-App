@@ -3,6 +3,7 @@ import cors from 'cors';// Import cors
 import 'dotenv/config';// Import dotenv
 import connectDB from './config/monogodb.js'; // Import connectDB from monogodb.js
 import userRouter from './routes/userRoutes.js';
+import imageRouter from './routes/imageRoutes.js';
 
 const PORT = process.env.PORT || 3000;// Set the port
 
@@ -15,6 +16,7 @@ app.use(cors());// Use cors
 await connectDB();// Connect to the database
 
 app.use('/api/user', userRouter);// Use the userRouter
+app.use('/api/image', imageRouter);// Use the imageRouter
 app.get('/', (req, res) => {// Create a get route
     res.send('API Working');// Send a response
 });
