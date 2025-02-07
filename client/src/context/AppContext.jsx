@@ -13,6 +13,7 @@ const AppContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [credit, setCredit] = useState(0);
   const [image, setImage] = useState(null);
+  const [previousGeneratedImages, setPreviousGeneratedImages] = useState([]);
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -27,12 +28,16 @@ const AppContextProvider = ({ children }) => {
         },
       });
 
-      console.log("Token", token);
-      console.log("Data", data);
+      console.log("Full API Response:", data); // Debugging
+
 
       if(data.success) {
         setCredit(data.credits);
         setUser(data.user);
+        console.log("Generated Images from API:", data.user.generatedImages);
+
+        setPreviousGeneratedImages(data.user.generatedImages || []);
+        
       }
 
     } catch (error) {
@@ -104,7 +109,9 @@ const AppContextProvider = ({ children }) => {
     // loguot,
     generateImage,
     image,
-    setImage
+    setImage,
+    previousGeneratedImages,
+    setPreviousGeneratedImages,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

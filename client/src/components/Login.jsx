@@ -13,6 +13,7 @@ const Login = () => {
     backendUrl,
     setToken,
     setUser,
+    setPreviousGeneratedImages,
   } = useContext(AppContext);
 
   const [email, setEmail] = useState("");
@@ -31,6 +32,7 @@ const Login = () => {
         console.log("This is Token:" ,data.token);
         setToken(data.token);
         setUser(data.user);
+        setPreviousGeneratedImages(data.user.generatedImages);
         localStorage.setItem("token", data.token);
         setIsOpenLogin(false);
 
@@ -68,7 +70,7 @@ const Login = () => {
             >
               <img
                 onClick={() => setIsOpenLogin(false)}
-                className="absolute top-5 right-5 cursor-pointer"
+                className="absolute top-3 right-3 w-6 cursor-pointer"
                 src={assets.cross_icon}
                 alt=""
               />

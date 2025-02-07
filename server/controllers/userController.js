@@ -94,7 +94,10 @@ const userCredits = async (req, res) => {
       res.status(200).json({
         success: true,
         credits: user.creditBalance,
-        user: { name: user.name },
+        user: { 
+          name: user.name,
+          generatedImages: user.generatedImages || [],
+         },
       });
     } catch (error) {
       console.log("User Credits Error:", error);

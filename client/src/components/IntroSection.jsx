@@ -19,6 +19,7 @@ const IntroSection = () => {
       </p>
       <div className="flex flex-col gap-5 md:flex-row">
         <div className="flex flex-col items-center justify-center mt-8 gap-6 md:flex-row md:w-[40%]">
+          
           <img
             className="w-[250px] h-full xl:w-[200px] xl:h-full xl:mt-8 rounded-[6px] hover:scale-105 transition-all duration-500"
             src={assets.intro_sec_img_1}

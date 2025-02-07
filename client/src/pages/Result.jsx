@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
 
 const Result = () => {
-  const { isImageGenerating, setIsImageGenerating } = useContext(AppContext);
+  const { isImageGenerating, previousGeneratedImages } = useContext(AppContext);
   const navigate = useNavigate();
 
   return (
@@ -35,11 +35,12 @@ const Result = () => {
               <img className="w-8" src={assets.starDeep} alt="" />
               <div className="flex flex-col gap-1 text-left">
                 <span className="text-gray-400 text-[10px] md:text-[18px] font-light">
-                  You are currently on a free plan.
+                  Unlock faster generations, extra token credits, and exclusive
+                  features by upgrading your plan!{" "}
                 </span>
                 <span className="text-white text-[12px] md:text-[20px] font-medium text-xl">
-                  Upgrade for priority generations, additional token credits,
-                  and much more!
+                  Upgrade now for priority access, enhanced benefits, and a
+                  smoother experience!
                 </span>
               </div>
             </div>
@@ -54,7 +55,11 @@ const Result = () => {
         </div>
 
         {/* Generation History */}
-        <GenerationHistory />
+        {previousGeneratedImages && previousGeneratedImages.length > 0 ? (
+          <GenerationHistory />
+        ) : (
+          <></>
+        )}
       </div>
     </motion.div>
   );

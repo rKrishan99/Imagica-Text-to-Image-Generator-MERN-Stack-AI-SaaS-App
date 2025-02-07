@@ -43,9 +43,10 @@ const Navbar = () => {
                 src={assets.profileIcon}
                 alt=""
               />
-              <div onClick={() => handleClickedLogout()} className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-white text-center runded pt-12">
-                <ul className="list-none m-0 p-2 bg-black rounded-md border text-sm">
-                  <li className="py-1 px-2 cursor-pointer text-center pr-10">Logout</li>
+              <div onClick={() => handleClickedLogout()} className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-[#bc6184] text-center runded pt-12">
+                <ul className="flex justify-center list-none m-0 p-2 bg-black rounded-md border text-sm">
+                  <li className="py-1 ml-[10px] px-2 text-white cursor-pointer text-center pr-10">Logout</li>
+                  <img className="w-5 mr-[10px]" src={assets.logout} alt="" />
                 </ul>
               </div>
             </div>

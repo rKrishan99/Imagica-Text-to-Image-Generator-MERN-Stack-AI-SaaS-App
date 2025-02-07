@@ -35,6 +35,7 @@ const GenerateBtn = () => {
         <img className="h-6" src={assets.star_group} alt="" />
       </button> */}
       <div class="relative group cursor-pointer rounded-full">
+        
         <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-violet-600 rounded-full blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
         <div class="relative bg-white ring-1 ring-gray-900/5 rounded-full ">
           <button
@@ -44,6 +45,7 @@ const GenerateBtn = () => {
             <p className="text-gray-200">Generates Images</p>
             <img className="h-6" src={assets.star_group} alt="" />
           </button>
+          
         </div>
       </div>
     </motion.div>

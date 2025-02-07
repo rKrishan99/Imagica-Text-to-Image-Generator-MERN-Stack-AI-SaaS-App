@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import profileIcon from "./profile_icon.png";
+import profileIcon from "./profile_icon.svg";
 import creditStar from "./credit_star.svg";
 import star_icon from "./star_icon.svg";
 import star_group from "./star_group.png";
@@ -29,6 +29,7 @@ import cross_icon from "./cross_icon.svg";
 import lock_icon from "./lock_icon.svg";
 import email_icon from "./email_icon.svg";
 import coins from "./coins.svg";
+import logout from "./logout.svg";
 
 export const assets = {
   logo,
@@ -62,7 +63,8 @@ export const assets = {
   cross_icon,
   lock_icon,
   email_icon,
-  coins
+  coins,
+  logout,
 };
 
 export const HowItWorksData = [

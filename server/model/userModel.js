@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 5,
   },
+  generatedImages: {
+    type: [String],
+    default: [],
+  },
 });
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema);

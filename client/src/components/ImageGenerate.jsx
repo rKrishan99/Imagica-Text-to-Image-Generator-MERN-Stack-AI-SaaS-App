@@ -5,10 +5,11 @@ import { motion } from "motion/react";
 import { AppContext } from "../context/AppContext";
 
 const ImageGenerate = () => {
-  const { image, setImage, setIsImageGenerating } = useContext(AppContext);
+  const { image, setImage, setIsImageGenerating, previousGeneratedImages, setPreviousGeneratedImages } = useContext(AppContext);
 
   const handleClearImage = () => {
     setIsImageGenerating(false);
+    setPreviousGeneratedImages([...previousGeneratedImages, image]);
     setImage("");
   };
 

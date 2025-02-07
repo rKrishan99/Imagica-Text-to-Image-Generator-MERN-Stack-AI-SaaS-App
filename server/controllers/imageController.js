@@ -46,6 +46,7 @@ export const generateImage = async (req, res) => {
     // Deduct a credit from the user
     await userModel.findByIdAndUpdate(user._id, {
       creditBalance: user.creditBalance - 1,
+      $push: { generatedImages: resultImage },
     });
 
     // Send the image to the user

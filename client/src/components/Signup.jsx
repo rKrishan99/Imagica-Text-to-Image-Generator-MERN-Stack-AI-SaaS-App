@@ -71,7 +71,7 @@ const SignUp = () => {
             >
               <img
                 onClick={() => setIsOpenSignup(false)}
-                className="absolute top-5 right-5 cursor-pointer"
+                className="absolute top-3 right-3 w-6 cursor-pointer"
                 src={assets.cross_icon}
                 alt=""
               />

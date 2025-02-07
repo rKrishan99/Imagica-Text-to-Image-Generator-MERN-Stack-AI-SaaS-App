@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const InputField = () => {
   const { generateImage, setIsImageGenerating, credit, setImage } =
     useContext(AppContext);
+
+  const navigate = useNavigate();
 
   const [prompt, setPrompt] = useState("");
 
@@ -15,6 +18,10 @@ const InputField = () => {
 
     if (prompt) {
       console.log("Prompt:", prompt);
+      if (credit <= 0) {
+        navigate("/buy-credit");
+        return;
+      }
       setIsImageGenerating(true);
       const generatedImage = await generateImage(prompt);
       if (generatedImage) {

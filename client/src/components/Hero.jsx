@@ -3,6 +3,7 @@ import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { AppContext } from "../context/AppContext";
+import { CSpinner } from '@coreui/react'
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Hero = () => {
         <h1>Turn Ideas into Art – Instantly!</h1>
         <img src={assets.star_icon} alt="" />
       </motion.div>
+
       <motion.h1
         className="md:text-6xl text-center md:max-w-[700px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10"
         initial={{ opacity: 0 }}
