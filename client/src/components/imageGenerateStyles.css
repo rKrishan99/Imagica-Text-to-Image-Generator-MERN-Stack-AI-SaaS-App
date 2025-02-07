@@ -9,7 +9,7 @@
     100% {
       background-position: 0% 50%;
     }
-  }
+}
   
   .gradientImg-bg {
     /* background: linear-gradient(270deg, #0c0431, #130d42, #23032f, #25063c);
@@ -18,6 +18,37 @@
     background-image: linear-gradient(125deg,#0e0315,#1a022b,#1c022d,#0d0212,#16031f);
     background-size: 1000%;
     animation: gradient-bg 2s infinite;
+  }
+
+  .image-container {
+    position: relative;
+  }
+  
+  .cross-icon,
+  .download-icon {
+    display: none;
+  }
+  
+  .image-container:hover .cross-icon,
+  .image-container:hover .download-icon {
+    display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    cursor: pointer;
+  }
+  
+  .image-container:hover .overlay {
+    opacity: 0.5;
   }
 
   

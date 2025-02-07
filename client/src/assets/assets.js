@@ -28,6 +28,7 @@ import plainLogo from "./plainLogo.svg"
 import cross_icon from "./cross_icon.svg";
 import lock_icon from "./lock_icon.svg";
 import email_icon from "./email_icon.svg";
+import coins from "./coins.svg";
 
 export const assets = {
   logo,
@@ -61,6 +62,7 @@ export const assets = {
   cross_icon,
   lock_icon,
   email_icon,
+  coins
 };
 
 export const HowItWorksData = [

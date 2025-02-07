@@ -7,7 +7,11 @@ export const generateImage = async (req, res) => {
     const { prompt } = req.body;
     const userId = req.user.id; // Extract userId from authenticated user
 
+    console.log("User ID:", userId); // Log the user ID
+    console.log("Prompt(server log):", prompt);
+
     const user = await userModel.findById(userId);
+
 
     if (!user || !prompt) {
       return res.status(400).json({
@@ -16,7 +20,7 @@ export const generateImage = async (req, res) => {
       });
     }
 
-    if (user.creditBalance === 1 || user.creditBalance < 0) {
+    if (user.creditBalance <= 0) {
       return res.status(400).json({
         success: false,
         message: "Insufficient credits",

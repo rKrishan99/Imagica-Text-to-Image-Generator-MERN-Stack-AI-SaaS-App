@@ -6,7 +6,15 @@ import { AppContext } from "../context/AppContext";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { user, setUser, isOpenLogin, setIsOpenLogin, logout, credit} = useContext(AppContext);
+  const { user, setUser, setToken, setIsOpenLogin, credit} = useContext(AppContext);
+
+  const handleClickedLogout = () => {
+      console.log("Logout");
+      localStorage.removeItem('token');
+      setToken('');
+      setUser(null);
+      navigate('/');
+  };
 
   return (
     <div className="flex items-center justify-between py-4">
@@ -35,9 +43,9 @@ const Navbar = () => {
                 src={assets.profileIcon}
                 alt=""
               />
-              <div className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-white text-center runded pt-12">
+              <div onClick={() => handleClickedLogout()} className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-white text-center runded pt-12">
                 <ul className="list-none m-0 p-2 bg-black rounded-md border text-sm">
-                  <li  onClick={logout} className="py-1 px-2 cursor-pointer text-center pr-10">Logout</li>
+                  <li className="py-1 px-2 cursor-pointer text-center pr-10">Logout</li>
                 </ul>
               </div>
             </div>
