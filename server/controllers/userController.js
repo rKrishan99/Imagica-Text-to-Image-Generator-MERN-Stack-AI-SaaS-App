@@ -81,7 +81,7 @@ const loginUser = async (req, res) => {
 
 const userCredits = async (req, res) => {
     try {
-      const userId = req.body.userID; // Extract user ID from the middleware
+      const userId = req.user.id; // Extract user ID from the middleware
       if (!userId) {
         return res.status(401).json({ success: false, message: "User ID not found" });
       }

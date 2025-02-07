@@ -21,16 +21,23 @@ const Login = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(backendUrl + "/auth/login", {
+      const { data } = await axios.post(`${backendUrl}/api/user/login`, {
         email,
         password,
       });
 
       if (data.success) {
+        localStorage.setItem("token", data.token);
+        console.log("This is Token:" ,data.token);
         setToken(data.token);
         setUser(data.user);
         localStorage.setItem("token", data.token);
         setIsOpenLogin(false);
+
+        toast.success("Login Success");
+
+        setEmail("");
+        setPassword("");
       } else {
         toast.error(data.message);
       }
@@ -75,21 +82,21 @@ const Login = () => {
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-10">
                 <img src={assets.email_icon} alt="" />
                 <input
-                  onClick={(e) => setEmail(e.target.value)}
-                  value={email}
                   className="focus:outline-none"
                   type="email"
                   placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-5">
                 <img src={assets.lock_icon} alt="" />
                 <input
-                  onClick={(e) => setPassword(e.target.value)}
-                  value={password}
                   className="focus:outline-none"
                   type="password"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="flex justify-start w-full mt-3">

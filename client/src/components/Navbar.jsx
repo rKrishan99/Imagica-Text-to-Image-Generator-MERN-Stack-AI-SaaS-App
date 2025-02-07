@@ -6,7 +6,7 @@ import { AppContext } from "../context/AppContext";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { user, setUser, isOpenLogin, setIsOpenLogin} = useContext(AppContext);
+  const { user, setUser, isOpenLogin, setIsOpenLogin, logout, credit} = useContext(AppContext);
 
   return (
     <div className="flex items-center justify-between py-4">
@@ -16,7 +16,7 @@ const Navbar = () => {
 
       <div>
         {user ? (
-          <div className="flex items-center gap-5=2 sm:gap-3 ">
+          <div className="flex items-center gap-5 sm:gap-3 ">
             <div className="rounded-full p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600 cursor-pointer hover:scale-105 transition-transform duration-700">
               <button
                 onClick={() => navigate("/buy-credit")}
@@ -24,11 +24,11 @@ const Navbar = () => {
               >
                 <img className="w-5" src={assets.creditStar} alt="" />
                 <p className="text-xs sm:text-sm font-medium text-white">
-                  Credit left : 50
+                  Credit left : {credit}
                 </p>
               </button>
             </div>
-            <p className="text-white max-sm:hidden pl-4">Hi, Rajitha</p>
+            <p className="text-white max-sm:hidden pl-4">Hi, {user.name}</p>
             <div className="relative group">
               <img
                 className="w-10 drop-shadow cursor-pointer"
@@ -37,7 +37,7 @@ const Navbar = () => {
               />
               <div className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-white text-center runded pt-12">
                 <ul className="list-none m-0 p-2 bg-black rounded-md border text-sm">
-                  <li  onClick={() => setIsOpenLogin(false)} className="py-1 px-2 cursor-pointer text-center pr-10">Logout</li>
+                  <li  onClick={logout} className="py-1 px-2 cursor-pointer text-center pr-10">Logout</li>
                 </ul>
               </div>
             </div>

@@ -7,7 +7,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
-
   const {
     isOpenSignup,
     setIsOpenSignup,
@@ -24,7 +23,7 @@ const SignUp = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(backendUrl + "/auth/register", {
+      const { data } = await axios.post(backendUrl + "/api/user/register", {
         name,
         email,
         password,
@@ -35,6 +34,13 @@ const SignUp = () => {
         setUser(data.user);
         localStorage.setItem("token", data.token);
         setIsOpenSignup(false);
+
+
+        toast.success("Signup Success");
+
+        setName("");
+        setEmail("");
+        setPassword("");
       } else {
         toast.error(data.message);
       }
@@ -79,31 +85,31 @@ const SignUp = () => {
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-10">
                 <img src={assets.email_icon} alt="" />
                 <input
-                  onClick={(e) => setName(e.target.value)}
-                  value={name}
                   className="focus:outline-none"
                   type="name"
                   placeholder="Name"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
                 />
               </div>
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-5">
                 <img src={assets.email_icon} alt="" />
                 <input
-                  onClick={(e) => setEmail(e.target.value)}
-                  value={email}
                   className="focus:outline-none"
                   type="email"
                   placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                 />
               </div>
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-5">
                 <img src={assets.lock_icon} alt="" />
                 <input
-                  onClick={(e) => setPassword(e.target.value)}
-                  value={password}
                   className="focus:outline-none"
                   type="password"
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
                 />
               </div>
               <div className="flex justify-start w-full mt-3">

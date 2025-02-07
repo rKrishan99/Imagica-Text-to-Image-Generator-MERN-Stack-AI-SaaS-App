@@ -7,6 +7,6 @@ const userRouter = express.Router();// Create a router
 
 userRouter.post('/register', registerUser);// Create a post route for register
 userRouter.post('/login', loginUser);// Create a post route for login
-userRouter.post('/credits', userAuth, userCredits);// Create a post route for credits
+userRouter.get('/credits', userAuth, userCredits);// Create a post route for credits
 
 export default userRouter;// Export the router
