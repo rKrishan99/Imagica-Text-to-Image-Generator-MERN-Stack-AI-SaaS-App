@@ -30,6 +30,7 @@ import lock_icon from "./lock_icon.svg";
 import email_icon from "./email_icon.svg";
 import coins from "./coins.svg";
 import logout from "./logout.svg";
+import gLogo from "./gLogo.svg"
 
 export const assets = {
   logo,
@@ -65,6 +66,7 @@ export const assets = {
   email_icon,
   coins,
   logout,
+  gLogo
 };
 
 export const HowItWorksData = [

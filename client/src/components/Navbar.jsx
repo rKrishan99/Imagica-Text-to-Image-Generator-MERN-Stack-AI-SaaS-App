@@ -6,14 +6,15 @@ import { AppContext } from "../context/AppContext";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { user, setUser, setToken, setIsOpenLogin, credit} = useContext(AppContext);
+  const { user, setUser, setToken, setIsOpenLogin, credit } =
+    useContext(AppContext);
 
   const handleClickedLogout = () => {
-      console.log("Logout");
-      localStorage.removeItem('token');
-      setToken('');
-      setUser(null);
-      navigate('/');
+    console.log("Logout");
+    localStorage.removeItem("token");
+    setToken("");
+    setUser(null);
+    navigate("/");
   };
 
   return (
@@ -39,13 +40,18 @@ const Navbar = () => {
             <p className="text-white max-sm:hidden pl-4">Hi, {user.name}</p>
             <div className="relative group">
               <img
-                className="w-10 drop-shadow cursor-pointer"
-                src={assets.profileIcon}
+                className="w-10 drop-shadow rounded-full cursor-pointer"
+                src={user.profileImage ? user.profileImage : assets.profileIcon}
                 alt=""
               />
-              <div onClick={() => handleClickedLogout()} className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-[#bc6184] text-center runded pt-12">
+              <div
+                onClick={() => handleClickedLogout()}
+                className="absolute hidden group-hover:block cursor-pointer top-0 right-0 z-10 text-[#bc6184] text-center runded pt-12"
+              >
                 <ul className="flex justify-center list-none m-0 p-2 bg-black rounded-md border text-sm">
-                  <li className="py-1 ml-[10px] px-2 text-white cursor-pointer text-center pr-10">Logout</li>
+                  <li className="py-1 ml-[10px] px-2 text-white cursor-pointer text-center pr-10">
+                    Logout
+                  </li>
                   <img className="w-5 mr-[10px]" src={assets.logout} alt="" />
                 </ul>
               </div>
@@ -60,7 +66,10 @@ const Navbar = () => {
               Pricing
             </p>
             <div className="rounded-full p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600 cursor-pointer hover:scale-105 transition-transform duration-700">
-              <button onClick={() => setIsOpenLogin(true)} className="bg-gray-950 cursor-pointer text-white px-7 py-2 sm:px-10 text-sm rounded-full">
+              <button
+                onClick={() => setIsOpenLogin(true)}
+                className="bg-gray-950 cursor-pointer text-white px-7 py-2 sm:px-10 text-sm rounded-full"
+              >
                 Login
               </button>
             </div>

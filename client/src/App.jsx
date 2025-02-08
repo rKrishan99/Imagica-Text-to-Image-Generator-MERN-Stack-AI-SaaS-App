@@ -7,9 +7,10 @@ import BuyCredit from "./pages/BuyCredit";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import "./styles.css";
 import Login from "./components/Login";
 import SignUp from "./components/Signup";
+import PasswordResetRequestForm from "./components/resetPassword/PasswordResetRequestForm";
+import AddNewPasswword from "./components/resetPassword/AddNewPasswword";
 
 const App = () => {
   return (
@@ -20,12 +21,16 @@ const App = () => {
       <Navbar />
       <Login />
       <SignUp />
+      <PasswordResetRequestForm />
+      <AddNewPasswword />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/result" element={<Result />} />
         <Route path="/buy-credit" element={<BuyCredit />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/sign-up" element={<SignUp/>}/>
+        <Route path="/forgot-password" element={<PasswordResetRequestForm/>} />
+        <Route path="/add-new-password" element={<AddNewPasswword/>} />
       </Routes>
       <Footer />
     </div>

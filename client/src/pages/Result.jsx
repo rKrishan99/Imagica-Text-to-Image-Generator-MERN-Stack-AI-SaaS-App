@@ -26,8 +26,6 @@ const Result = () => {
         {/* Input section */}
         {isImageGenerating ? <ImageGenerate /> : <InputField />}
 
-        {/* Image section */}
-
         {/* upgrade credit section*/}
         <div className=" mt-40 rounded-lg p-[2px] bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600">
           <div className="flex sm:flex-row flex-col  items-center gap-4 justify-between px-6 py-3 bg-[#000000] rounded-lg">

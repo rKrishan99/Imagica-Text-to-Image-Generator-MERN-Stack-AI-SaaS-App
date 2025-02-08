@@ -1,28 +1,40 @@
-import express from 'express';// Import express
-import cors from 'cors';// Import cors
-import 'dotenv/config';// Import dotenv
-import connectDB from './config/monogodb.js'; // Import connectDB from monogodb.js
-import userRouter from './routes/userRoutes.js';
-import imageRouter from './routes/imageRoutes.js';
+import express from "express";
+import cors from "cors";
+import "dotenv/config";
+import connectDB from "./config/monogodb.js";
+import userRouter from "./routes/userRoutes.js";
+import imageRouter from "./routes/imageRoutes.js";
+import restPasswordRouter from "./routes/resetPasswordRoutes.js";
 
-const PORT = process.env.PORT || 3000;// Set the port
+const PORT = process.env.PORT || 3000;
 
-const app = express();// Create an express app
+const app = express();
 
+app.use(express.json());
+app.use(cors());
 
-app.use(express.json());// Use express.json
-app.use(cors());// Use cors
-
-await connectDB();// Connect to the database
-
-app.use('/api/user', userRouter);// Use the userRouter
-app.use('/api/image', imageRouter);// Use the imageRouter
-app.get('/', (req, res) => {// Create a get route
-    res.send('API Working');// Send a response
-});
+console.log("Email:", process.env.EMAIL);
+console.log("Password:", process.env.PASSWORD ? "Loaded" : "Not Loaded");
+console.log("Password:", process.env.PASSWORD);
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);// Log that the server is running
-});
+const startServer = async () => {
+  try {
+    await connectDB();
 
+    app.use("/api/user", userRouter);
+    app.use("/api/image", imageRouter);
+    app.use("/api/auth", restPasswordRouter);
+    app.get("/", (req, res) => {
+      res.send("API Working");
+    });
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`); // Log that the server is running
+    });
+  } catch (error) {
+    console.error("Error connecting to DB:", error);
+  }
+};
+
+startServer();

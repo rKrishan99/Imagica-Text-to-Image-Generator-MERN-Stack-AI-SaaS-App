@@ -10,10 +10,12 @@ const AppContextProvider = ({ children }) => {
   const [isImageGenerating, setIsImageGenerating] = useState(false);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenSignup, setIsOpenSignup] = useState(false);
-  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [credit, setCredit] = useState(0);
   const [image, setImage] = useState(null);
   const [previousGeneratedImages, setPreviousGeneratedImages] = useState([]);
+  const [isOpenForgotPassword, setIsOpenForgotPassword] = useState(false);
+  const [isOpenAddNewPassword, setIsOpenAddNewPassword] = useState(false);
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -22,24 +24,24 @@ const AppContextProvider = ({ children }) => {
   const loadCreditData = async () => {
     console.log("Token in context:", token);
     try {
-      const { data } = await axios.get(backendUrl + '/api/user/credits', {
+      const { data } = await axios.get(backendUrl + "/api/user/credits", {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
       });
 
-      console.log("Full API Response:", data); // Debugging
+      console.log("Full API Response in context:", data); // Debugging
+      console.log("data.success:", data);
+      console.log("data.user:", data.user);
+      console.log("user.profileImage:", user.profileImage);
 
-
-      if(data.success) {
+      if (data.success) {
         setCredit(data.credits);
         setUser(data.user);
         console.log("Generated Images from API:", data.user.generatedImages);
 
         setPreviousGeneratedImages(data.user.generatedImages || []);
-        
       }
-
     } catch (error) {
       console.log(error);
       toast.error(error.message);
@@ -47,43 +49,42 @@ const AppContextProvider = ({ children }) => {
   };
 
   const generateImage = async (prompt) => {
-    try{
+    try {
       console.log("Prompt in generate:", prompt);
       console.log("Token in generate:", token);
-      const {data} = await axios.post(backendUrl + '/api/image/generate-image', {
-        prompt
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const { data } = await axios.post(
+        backendUrl + "/api/image/generate-image",
+        {
+          prompt,
         },
-      });
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       console.log("Generated Image Data:", data);
 
-      if(data.success){
+      if (data.success) {
         loadCreditData();
         return data.resultImage;
-      }else{
+      } else {
         toast.error(data.message);
         loadCreditData();
-        if(data.credits === 0){
-          navigate('/buy-credits');
+        if (data.credits === 0) {
+          navigate("/buy-credits");
         }
       }
-
-    }catch(error){
+    } catch (error) {
       console.log(error);
       toast.error(error.message);
     }
-  }
+  };
 
-  // const loguot = () => {
-  //   console.log("Logout");
-  //   localStorage.removeItem('token');
-  //   setToken('');
-  //   setUser(null);
-  //   navigate('/');
-  // }
+  useEffect(() => {
+    console.log("Updated User State:", user);
+  }, [user]);
 
   useEffect(() => {
     if (token) {
@@ -106,12 +107,15 @@ const AppContextProvider = ({ children }) => {
     credit,
     setCredit,
     loadCreditData,
-    // loguot,
     generateImage,
     image,
     setImage,
     previousGeneratedImages,
     setPreviousGeneratedImages,
+    isOpenForgotPassword,
+    setIsOpenForgotPassword,
+    isOpenAddNewPassword,
+    setIsOpenAddNewPassword,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

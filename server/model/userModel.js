@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 5,
   },
+  profileImage: {
+    type: String,
+    default: "",
+  },
   generatedImages: {
     type: [String],
     default: [],

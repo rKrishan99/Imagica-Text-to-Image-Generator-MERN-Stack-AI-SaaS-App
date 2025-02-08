@@ -4,6 +4,7 @@ import { AppContext } from "../context/AppContext";
 import { motion, AnimatePresence } from "motion/react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import GoogleSignIn from "./GoogleSignIn";
 
 const Login = () => {
   const {
@@ -14,6 +15,7 @@ const Login = () => {
     setToken,
     setUser,
     setPreviousGeneratedImages,
+    setIsOpenForgotPassword,
   } = useContext(AppContext);
 
   const [email, setEmail] = useState("");
@@ -53,6 +55,11 @@ const Login = () => {
     setIsOpenSignup(true);
   };
 
+  const hadleClickForgotPassword = () => {
+    setIsOpenLogin(false);
+    setIsOpenForgotPassword(true);
+  };
+
   return (
     <AnimatePresence>
       {isOpenLogin && (
@@ -75,10 +82,10 @@ const Login = () => {
                 alt=""
               />
               <img className="w-44" src={assets.logo} alt="" />
-              <h1 className="text-center mt-8 text-3xl text-netral-600">
+              {/* <h1 className="text-center mt-8 text-3xl text-netral-600">
                 Login
-              </h1>
-              <p className="text-sm mt-3">
+              </h1> */}
+              <p className="text-sm mt-6">
                 Wellcome back! Please sign in to continue
               </p>
               <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-10">
@@ -102,10 +109,14 @@ const Login = () => {
                 />
               </div>
               <div className="flex justify-start w-full mt-3">
-                <span className="text-sm text-gray-300 cursor-pointer hover:text-[#bc619b] transition-colors duration-300">
+                <span  onClick={() => hadleClickForgotPassword()} className="text-sm text-gray-300 cursor-pointer hover:text-[#bc619b] transition-colors duration-300">
                   Forgot Password?
                 </span>
               </div>
+
+              <span className="text-gray-400 mt-3">or</span>
+
+                <GoogleSignIn/>
 
               <button className="mt-8 w-full bg-gradient-to-r from-[#bc619b] via-red-500 to-blue-600 text-white cursor-pointer hover:scale-105 transition-all duration-300 px-7 py-2 rounded-full">
                 Login
