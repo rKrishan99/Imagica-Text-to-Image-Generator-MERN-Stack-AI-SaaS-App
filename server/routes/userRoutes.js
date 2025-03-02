@@ -1,4 +1,4 @@
-import express from 'express';// Import express
+import express from 'express'; // Import express
 import userController from '../controllers/userController.js';// Import the registerUser and loginUser functions from userController.js
 import userAuth from '../middleware/auth.js';
 

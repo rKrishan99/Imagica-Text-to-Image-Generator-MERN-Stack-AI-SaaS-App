@@ -14,7 +14,6 @@ const InputField = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Prompt:", prompt);
-    // generateImage(prompt);
 
     if (prompt) {
       console.log("Prompt:", prompt);

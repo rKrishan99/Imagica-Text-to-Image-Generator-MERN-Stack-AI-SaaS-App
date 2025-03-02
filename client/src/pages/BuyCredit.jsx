@@ -30,7 +30,7 @@ const BuyCredit = () => {
                   {plans.id}
                 </h1>
                 <p className="text-gray-300 h-12 mt-4">{plans.desc}</p>
-                <div className=" flex mt-12">
+                <div className=" flex items-end mt-12">
                   <p className="text-3xl text-gray-200">$ {plans.price}</p>
                   <p className="text-[12px] text-gray-200">
                     {" "}
